@@ -7,9 +7,11 @@ editor: visual
 
 # **ESM 232 Assignment 2**
 
+The goal for this assignment is to implement a simple model of almond yield anomaly response to climate.
+
 # **Conceptual Model**
 
-The conceptual model (embed as picture) shows how we applied the function to the test climate data (clim.txt).
+We used the Lobell et al. 2006 paper as the source for the transfer function that we use in the conceptual model, specifically looking at the equations in table 2. The conceptual model (embed as picture) shows how we applied the function to the test climate data (clim.txt).
 
 ![](images/Almond%20Yield%20Diagram.jpg)
 
