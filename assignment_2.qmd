@@ -5,9 +5,10 @@ format: html
 editor: visual
 ---
 
-![](images/Almond Yield Diagram.jpg)
+![](images/Almond%20Yield%20Diagram.jpg)
 
 # Libraries
+
 
 ```{r}
 library(tidyverse)
