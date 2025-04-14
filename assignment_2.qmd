@@ -1,6 +1,6 @@
 ---
 title: "assignment_2"
-author: "Kyle Burt"
+author: "Kyle Burt and Michelle Moreno"
 format: html
 editor: visual
 ---
