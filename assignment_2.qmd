@@ -1,0 +1,27 @@
+---
+title: "assignment_2"
+author: "Kyle Burt"
+format: html
+editor: visual
+---
+
+# Libraries
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+# Load data
+
+```{r}
+clim <- read.table(here("data", "clim.txt"), header = TRUE, sep = " ")
+```
+
+# Filter data
+
+```{r}
+filtered_clim <- clim |>
+  filter(month %in% c(1, 2)) |>
+  select(-wy, -tmax_c)
+```
