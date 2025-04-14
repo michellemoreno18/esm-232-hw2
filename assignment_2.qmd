@@ -5,6 +5,8 @@ format: html
 editor: visual
 ---
 
+![](images/Almond Yield Diagram.jpg)
+
 # Libraries
 
 ```{r}
