@@ -41,13 +41,19 @@ filtered_clim <- clim |>
 # Average February minimum temperature
 
 ```{r}
-
+feb_avg <- filtered_clim %>%
+  filter(month == 2) %>%
+  group_by(year) %>%
+  summarise(feb_avg_min_temp = mean(tmin_c, na.rm = TRUE))
 ```
 
 # Total January precipitation
 
 ```{r}
-
+jan_sum <- filtered_clim %>%
+  filter(month == 1) %>%
+  group_by(year) %>%
+  summarise(jan_total_precip = sum(precip, na.rm = TRUE))
 ```
 
 When using the mean minimum temperature, the output stats should be:
