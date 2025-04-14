@@ -9,7 +9,6 @@ editor: visual
 
 # Libraries
 
-
 ```{r}
 library(tidyverse)
 library(here)
@@ -27,4 +26,16 @@ clim <- read.table(here("data", "clim.txt"), header = TRUE, sep = " ")
 filtered_clim <- clim |>
   filter(month %in% c(1, 2)) |>
   select(-wy, -tmax_c)
+```
+
+Average February minimum temperature
+
+```{r}
+
+```
+
+Total January precipitation
+
+```{r}
+
 ```
