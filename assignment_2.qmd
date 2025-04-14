@@ -9,7 +9,6 @@ editor: visual
 
 # Libraries
 
-
 ```{r}
 library(tidyverse)
 library(here)
@@ -21,10 +20,59 @@ library(here)
 clim <- read.table(here("data", "clim.txt"), header = TRUE, sep = " ")
 ```
 
-# Filter data
+# Data management
+
+### Filter data
 
 ```{r}
 filtered_clim <- clim |>
   filter(month %in% c(1, 2)) |>
   select(-wy, -tmax_c)
+```
+
+### Create data for total precipitation calculation
+
+```{r}
+jan_precip_summary <- filtered_clim |>
+  filter(month == 1) |>
+  group_by(year) |>
+  summarise(jan_precip = sum(precip, na.rm = TRUE), 
+            .groups = "drop")
+```
+
+### Create data for average minimum temperature calculation
+
+```{r}
+feb_TminC_summary <- filtered_clim |>
+  filter(month == 2) |>
+  group_by(year) |>
+  summarise(feb_tmin_c = mean(tmin_c, na.rm = TRUE), 
+            .groups = "drop")
+```
+
+### Join the two summaries
+
+```{r}
+clim_inputs <- left_join(feb_TminC_summary, jan_precip_summary, by = "year")
+```
+
+# Calculate almond yield anomaly for each year
+
+```{r}
+source("R/almond_yield.R")
+
+clim_yield_summary <- clim_inputs |>
+  mutate(yield_anomaly = almond_yield(min_temp = feb_tmin_c, 
+                                      P = jan_precip))
+```
+
+# Plot of almond yield anomaly over time
+
+```{r}
+ggplot(clim_yield_summary, aes(x = year, y = yield_anomaly)) +
+  geom_line(color = "darkgreen", size = 1) +
+  geom_point(color = "darkgreen", size = 2) +
+  labs(title = "Yield Anomaly Over Time", x = "Year", 
+       y = "Yield Anomaly (tons/acre)") + 
+  theme_bw()
 ```
