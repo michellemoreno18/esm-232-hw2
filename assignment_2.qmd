@@ -22,6 +22,8 @@ clim <- read.table(here("data", "clim.txt"), header = TRUE, sep = " ")
 
 # Filter data
 
+Filter the climate dataset to only include January (1) and February (2). These are the months used in the almond yield model.
+
 ```{r}
 filtered_clim <- clim |>
   filter(month %in% c(1, 2)) |>
