@@ -5,6 +5,12 @@ format: html
 editor: visual
 ---
 
+# **ESM 232 Assignment 2**
+
+# **Conceptual Model**
+
+The conceptual model (embed as picture) shows how we applied the function to the test climate data (clim.txt).
+
 ![](images/Almond%20Yield%20Diagram.jpg)
 
 # Libraries
@@ -30,13 +36,13 @@ filtered_clim <- clim |>
   select(-wy, -tmax_c)
 ```
 
-Average February minimum temperature
+# Average February minimum temperature
 
 ```{r}
 
 ```
 
-Total January precipitation
+# Total January precipitation
 
 ```{r}
 
